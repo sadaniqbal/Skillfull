@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button Href="/tabs/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{person.name}}'s Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md='8' class="ion-text-center">
+        <ion-card>
+          <ion-card-content>
+            <img src="{{person.image}}" class="image" />
+            <p class="wage">${{person.wage}} Per Hour</p>
+            <p class="text">{{person.description }}</p>
+            <p>Available From: {{person.availableFrom | date}}</p>
+            <p>Available To: {{person.availableTo | date}}</p>
+          </ion-card-content>
+        </ion-card>
+        <ion-button class="button" [routerLink]="['/','tabs','tab2','editperson',person.id]">Edit</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

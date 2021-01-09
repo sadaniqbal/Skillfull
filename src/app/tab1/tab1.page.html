@@ -1,17 +1,55 @@
-<ion-header [translucent]="true">
+
+<ion-header >
   <ion-toolbar>
-    <ion-title>
-      Tab 1
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="header">
+      You're one step away from having your work done!
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md='8' offset-md='2' class="ion-text-center">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="wage">
+              {{loadedPersons[0].name}} 
+              ( {{loadedPersons[0].category}} )
+            </ion-card-title>
+            <ion-card-subtitle >
+              {{loadedPersons[0].wage | currency}} Per Hour
+            </ion-card-subtitle>
+          </ion-card-header>
+          <img src={{loadedPersons[0].image}}>
+          <ion-card-content>
+            <p>{{loadedPersons[0].description }}</p>
+          </ion-card-content>
+          <ion-button class="button" [routerLink]="['/','booking','createbooking',loadedPersons[0].id]">
+            Request To Hire
+          </ion-button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md='8' offset-md='2'>
+        <ion-list *ngFor="let person of loadedPersons.slice(1)">
+          <ion-item detail [routerLink]="['/','booking','createbooking', person.id]">
+            <ion-thumbnail slot="start">
+              <img class="image" src={{person.image}}>
+            </ion-thumbnail>
+            <ion-label>
+            <h2 class="wage">{{person.name}} 
+              ({{person.category}})
+            </h2>
+            <p>{{person.description}}</p>
+          </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

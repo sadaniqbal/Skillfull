@@ -1,0 +1,33 @@
+ion-loading {
+  color: green;
+}
+
+/* Works - pass "my-custom-class" in cssClass to increase specificity */
+.my-custom-class {
+  color: green;
+}
+
+.header{
+  font-size: 10px;
+  font-weight: bolder;
+  text-align: center;
+  font-family: Marker Felt, fantasy;
+  text-transform: uppercase;
+}
+
+.button{
+  width: 95%;
+}
+
+.image{
+  border-radius: 50%;
+}
+
+.wage{
+  font-weight: bold;
+  color: #00796B;
+}
+
+.text{
+  font-weight: bold;
+}
